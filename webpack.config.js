@@ -35,7 +35,7 @@ module.exports = {
             }
           },
           {
-            loader: 'style-loader'
+            loader: 'sass-loader'
           }
         ]
       }

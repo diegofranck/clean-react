@@ -1,0 +1,52 @@
+@import "../../styles/colors.scss";
+
+.spinner {
+  display: inline-block;
+  height: 13px;
+  position: relative;
+  width: 80px;
+
+  & > div {
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    background: $primary;
+    border-radius: 50%;
+    height: 13px;
+    position: absolute;
+    top: 0;
+    width: 13px;
+  
+    &:nth-child(1) {
+      animation: spinner1 0.6s infinite;
+      left: 8px;
+    }
+  
+    &:nth-child(2) {
+      animation: spinner2 0.6s infinite;
+      left: 8px;
+    }
+  
+    &:nth-child(3) {
+      animation: spinner2 0.6s infinite;
+      left: 32px;
+    }
+  
+    &:nth-child(4) {
+      animation: spinner3 0.6s infinite;
+      left: 56px;
+    }
+  }
+}
+    
+@keyframes spinner1 {
+  0% { transform: scale(0);}
+  100% { transform: scale(1); }
+}
+
+@keyframes spinner3 {
+  0% { transform: scale(1); }
+  100% { transform: scale(0); }
+}
+@keyframes spinner2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(24px, 0); }
+}
