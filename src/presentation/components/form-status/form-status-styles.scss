@@ -1,0 +1,15 @@
+@import "../../styles/colors.scss";
+
+.errorWrap {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+
+  .spinner { margin-top: 30px; }
+
+  .error {
+    color: $primary-light;
+    margin-top: 30px;
+    text-align: center;
+  }
+}
