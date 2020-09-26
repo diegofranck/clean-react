@@ -1,0 +1,16 @@
+.inputWrap {
+  align-items: center;
+  display: flex;
+  margin-top: 16px;
+  position: relative;
+
+  input {
+    flex-grow: 1;
+  }
+
+  .status {
+    cursor: help;
+    position: absolute;
+    right: 8px;
+  }
+}
