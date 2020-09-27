@@ -1,15 +1,27 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, RenderResult } from '@testing-library/react'
 
 import Login from './login'
 
+type SutTypes = {
+  sut: RenderResult
+}
+
+const makeSut = (): SutTypes => {
+  const sut = render(<Login/>)
+  return {
+    sut
+  }
+}
+
 describe('Login Component', () => {
   test('Should start with initial state', () => {
-    const { getByTestId } = render(<Login/>)
-    const errorWrap = getByTestId('error-wrap')
-    const emailStatus = getByTestId('email-status')
-    const passwordStatus = getByTestId('password-status')
-    const submitButton = getByTestId('submit') as HTMLButtonElement
+    const { sut } = makeSut()
+    
+    const errorWrap = sut.getByTestId('error-wrap')
+    const emailStatus = sut.getByTestId('email-status')
+    const passwordStatus = sut.getByTestId('password-status')
+    const submitButton = sut.getByTestId('submit') as HTMLButtonElement
 
     expect(errorWrap.childElementCount).toBe(0)
 
