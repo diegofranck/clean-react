@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { Authentication } from '@/domain/usecases'
 import {
@@ -28,6 +28,8 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
     mainError: ''
   })
 
+  const history = useHistory()
+
   useEffect(() => {
     setState({
       ...state,
@@ -55,6 +57,8 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
       })
 
       localStorage.setItem('accessToken', account.accessToken)
+
+      history.replace('/')
     } catch (error) {
       setState({
         ...state,
